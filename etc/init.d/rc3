@@ -1,0 +1,11 @@
+#!/bin/sh
+#Turn of heart beat
+echo "Heartbeat Disable"
+echo none > /sys/class/leds/beaglebone\:green\:usr0/trigger
+
+#write message to led to display Morse code 
+echo "Welcome to Embedded Linux" > /dev/MorseCode
+
+#Turn heartbeat back on
+echo heartbeat > /sys/class/leds/beaglebone\:green\:usr0/trigger
+echo "Heartbeat Enable"

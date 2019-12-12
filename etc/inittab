@@ -1,0 +1,17 @@
+::sysinit:/etc/init.d/rcS 
+
+l3:3:wait:/etc/init.d/rc3
+
+# /bin/ash
+#
+# Start an "askfirst" shell on the serial port
+console::askfirst:-/bin/ash
+
+# Stuff to do when restarting the init process
+::restart:/sbin/init
+
+null::sysinit:/bin/mount -a
+null::sysinit:/bin/hostname -F /etc/hostname
+null::respawn:/bin/cttyhack /bin/login root
+null::restart:/sbin/reboot
+
